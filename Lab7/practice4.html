@@ -56,8 +56,6 @@
             return $out;
         }
 
-        echo '<p>' . pad(10, 4) . '</p>';
-
         echo '<p>';
         for($i = 0; $i <= $value; $i++)
         {
@@ -65,7 +63,8 @@
             echo ': [';
             for($j = 0; $j <= $value; $j++)
             {
-                echo $i * $j;
+                $k = $i * $j;
+                echo pad($k, $width);
             }
             echo ']<br>';
         }
