@@ -48,14 +48,14 @@
 
             $out = strval($num);
 
-            echo '<p>' . $count . '</p>';
-
             $count = $length - $count;
 
             for($i = 0; $i < $count; $i++)
             {
                 $out .= " ";
             }
+
+            echo '<p>|' . $count . '|</p>';
 
             return $out;
         }
