@@ -46,7 +46,7 @@
                 $count++;
             }
 
-            $out = (string)$num;
+            $out = strval($num);
 
             for($i = 0; $i < $length - $count; $i++)
             {
@@ -55,6 +55,8 @@
 
             return $out;
         }
+
+        echo '<p>' . pad(10, 4) . </p>;
 
         echo '<p>';
         for($i = 0; $i <= $value; $i++)
