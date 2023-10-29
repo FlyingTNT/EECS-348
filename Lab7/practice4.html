@@ -2,6 +2,26 @@
 <html>
     <head>
         <title>Multiplication Table</title>
+
+        <style>
+            p{
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            h1{
+                margin-bottom: 0;
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            h3{
+                margin-top: 0;
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            form{
+                font-family:'Courier New', Courier, monospace;
+            }
+        </style>
     </head>
 
     <body>
@@ -13,14 +33,37 @@
     <?php
         $value = 10;
 
+        $width = 4;
+
+        function pad($num, $length)
+        {
+            $count = 0;
+            $temp = $num;
+
+            while($temp > 0)
+            {
+                $temp = intdiv($temp, 10);
+                $count++;
+            }
+
+            $out = (string)$num;
+
+            for($i = 0; i < $length - $count; i++)
+            {
+                out .= " ";
+            }
+
+            return out;
+        }
+
         echo '<p>';
         for($i = 0; $i <= $value; $i++)
         {
-            echo $i;
+            echo pad($i, $width);
             echo ': [';
             for($j = 0; $j <= $value; $j++)
             {
-                echo $i * $j;
+                echo pad($i * $j, $width);
             }
             echo ']<br>';
         }
