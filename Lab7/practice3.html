@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Password </title>
+
+        <style>
+            p{
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            h1{
+                margin-bottom: 0;
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            h3{
+                margin-top: 0;
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            form{
+                font-family:'Courier New', Courier, monospace;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>
+            Password Checker
+        </h1>
+
+        <form>
+            Enter Password: <input type="password" name = "pass1"><br>
+            Re-Enter Password: <input type="password" name = "pass2"><br>
+            <button type = "submit">Submit</button>
+        </form>
+
+        <p id = "result"></p>
+    </body>
+
+    <script>
+        let form = document.querySelector("form");
+        let result = document.getElementById("result");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault()
+            if(form.elements.pass1.value != form.elements.pass2.value){
+                result.innerHTML = "The passwords do not match!";
+            }else if(!isValidPassword(form.elements.pass1.value)){
+                result.innerHTML = "Passoword is too short!";
+            }else{
+                result.innerHTML = "Your password is valid.";
+            }
+        });
+
+        form.elements.pass1.addEventListener("input", (event) => {result.innerHTML = ""});
+        form.elements.pass2.addEventListener("input", (event) => {result.innerHTML = ""});
+
+        function isValidPassword(password)
+        {
+            return password.length >= 8;
+        }
+    </script>
+</html>
