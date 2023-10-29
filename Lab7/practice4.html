@@ -50,11 +50,7 @@
 
             $count = $length - $count;
 
-            for($i = 0; $i < $count; $i++)
-            {
-                $out = $out . " ";
-                echo '<p>|' . $out . '|</p>';
-            }
+            out = out . str_repeat(' ', $count);
 
             return $out;
         }
