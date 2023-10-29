@@ -48,7 +48,9 @@
 
             $out = strval($num);
 
-            for($i = 0; $i < $length - $count; $i++)
+            $count = $length - $count;
+
+            for($i = 0; $i < $count; $i++)
             {
                 $out .= " ";
             }
