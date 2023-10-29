@@ -48,12 +48,12 @@
 
             $out = (string)$num;
 
-            for($i = 0; i < $length - $count; i++)
+            for($i = 0; $i < $length - $count; $i++)
             {
-                out .= " ";
+                $out .= " ";
             }
 
-            return out;
+            return $out;
         }
 
         echo '<p>';
