@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multiplication Table</title>
+
+        <style>
+            p{
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            h1{
+                margin-bottom: 0;
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            h3{
+                margin-top: 0;
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            form{
+                font-family:'Courier New', Courier, monospace;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Multiplication Table</h1>
+        <form>
+            Number:<input type="text" name="number">
+        </form>
+
+    <?php
+        if($_GET)
+        {
+            $value = $_GET['number'];
+
+            $width = 4;
+
+            function pad($num, $length)
+            {
+                $count = 0;
+                $temp = $num;
+
+                while($temp > 0)
+                {
+                    $temp = intdiv($temp, 10);
+                    $count++;
+                }
+
+                $out = strval($num);
+
+                $count = $length - $count;
+
+                $out = $out . str_repeat(' ', $count);
+
+                return $out;
+            }
+
+            echo '<p style= "font-family:\'Courier New\', Courier, monospace; white-space:pre;">';
+            echo '  x  ';
+            for($i = 1; $i <= $value; $i++)
+            {
+                $out = pad($i, 4);
+                echo $out;
+            }
+            echo '<br>';
+
+            for($i = 1; $i <= $value; $i++)
+            {
+                echo $i;
+                if($i >= 10)
+                {
+                    echo ': [';
+                }else{
+                    echo ':  [';
+                }
+
+                for($j = 1; $j <= $value; $j++)
+                {
+                    $k = $i * $j;
+                    $out = pad($k, 4);
+                    echo $out;
+                }
+                echo ']<br>';
+            }
+            
+            echo '</p>';
+        }
+    ?>
+    </body>
+</html>

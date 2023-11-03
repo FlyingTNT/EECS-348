@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Font Control</title>
+
+        <style>
+            p{
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            h1{
+                margin-bottom: 0;
+                font-family:'Courier New', Courier, monospace;
+            }
+
+            h3{
+                margin-top: 0;
+                font-family:'Courier New', Courier, monospace;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>
+            Font Control
+        </h1>
+
+        <p id = "colors">The quick brown fox jumped over the lazy dog.</p>
+        <form>
+            Border R: <input type="text" name = "br", id="br"><br>
+            Border G: <input type="text" name = "bg", id="bg"><br>
+            Border B: <input type="text" name = "bb", id="bb"><br>
+            Border Size: <input type="text" name = "bs", id="bs"><br>
+            Paragraph R: <input type="text" name = "pr", id="pr"><br>
+            Paragraph B: <input type="text" name = "pg", id="pb"><br>
+            Paragraph G: <input type="text" name = "pb", id="pg"><br>
+            <button type = "submit">Submit</button>
+        </form>
+    </body>
+
+    <script>
+        "use strict";
+        let form = document.querySelector("form");
+        let para = document.getElementById("colors");
+        let elements = [document.getElementById("br"), 
+                        document.getElementById("bg"),
+                        document.getElementById("bb"),
+                        document.getElementById("bs"),
+                        document.getElementById("pr"),
+                        document.getElementById("pg"),
+                        document.getElementById("pb")];
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            console.log("E");
+            setColor()});
+
+        function setColor()
+        {
+            para.style.color = "rgb(" + elements[4].value + ", " + elements[5].value + ", " + elements[6].value + ")";
+            form.style.color = "rgb(" + elements[4].value + ", " + elements[5].value + ", " + elements[6].value + ")";
+            
+            //For some reason, this would not work if I did it in a loop. It said the element had no property borderColor
+            elements[0].style.borderColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[0].style.outlineColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[0].style.borderWidth = elements[3].value + "px";
+
+            elements[1].style.borderColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[1].style.outlineColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[1].style.borderWidth = elements[3].value + "px";
+
+            elements[2].style.borderColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[2].style.outlineColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[2].style.borderWidth = elements[3].value + "px";
+
+            elements[3].style.borderColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[3].style.outlineColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[3].style.borderWidth = elements[3].value + "px";
+
+            elements[4].style.borderColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[4].style.outlineColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[4].style.borderWidth = elements[3].value + "px";
+
+            elements[5].style.borderColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[5].style.outlineColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[5].style.borderWidth = elements[3].value + "px";
+
+            elements[6].style.borderColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[6].style.outlineColor = "rgb(" + elements[0].value + ", " + elements[1].value + ", " + elements[2].value + ")";
+            elements[6].style.borderWidth = elements[3].value + "px";
+        }
+    </script>
+</html>
